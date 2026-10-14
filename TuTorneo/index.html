@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏆 Gestor de Torneos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ==================== PANTALLA AUTH ==================== -->
+  <div id="view-auth" class="auth-wrap">
+    <div class="auth-card">
+      <h1 id="auth-title">🏆 TuTorneo</h1>
+      <p id="auth-subtitle">Inicia sesión para gestionar tus torneos</p>
+      <div id="auth-error" class="error hidden"></div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="auth-email" placeholder="tu@email.com" />
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="auth-password" placeholder="••••••••" />
+      </div>
+
+      <button class="btn-primary btn-block" id="auth-submit">Iniciar sesión</button>
+
+      <div class="switch-link">
+        <span id="auth-switch-text">¿No tienes cuenta?</span>
+        <a id="auth-switch">Regístrate</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== APP PRINCIPAL ==================== -->
+  <div id="view-app" class="hidden">
+    <header class="header">
+      <div class="logo">🏆 TuTorneo</div>
+      <div class="row">
+        <span class="muted" id="user-email"></span>
+        <button class="btn-ghost btn-sm" id="btn-logout">Salir</button>
+      </div>
+    </header>
+
+    <!-- Lista de proyectos -->
+    <div id="view-projects" class="container">
+      <div class="row space-between mb-20">
+        <div>
+          <h1>Mis competencias</h1>
+          <p class="muted">Gestiona todos tus torneos</p>
+        </div>
+        <button class="btn-primary" id="btn-new-comp">+ Crear competencia</button>
+      </div>
+      <div id="projects-list" class="grid grid-2"></div>
+    </div>
+
+    <!-- Detalle de competencia -->
+    <div id="view-detail" class="container hidden">
+      <button class="btn-ghost btn-sm mb-16" id="btn-back">← Volver</button>
+
+      <div class="row space-between mb-20">
+        <div>
+          <h1 id="detail-name"></h1>
+          <p class="muted" id="detail-meta"></p>
+        </div>
+        <div class="row">
+          <button class="btn-ghost btn-sm" id="btn-edit-comp">✏️ Editar</button>
+          <button class="btn-ghost btn-sm" id="btn-finish-comp">🏁 Finalizar</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="fixture">📅 Fixture y resultados</button>
+        <button class="tab" data-tab="posiciones">📊 Posiciones</button>
+        <button class="tab" data-tab="stats">📈 Estadísticas</button>
+      </div>
+
+      <div id="tab-fixture"></div>
+      <div id="tab-posiciones" class="hidden"></div>
+      <div id="tab-stats" class="hidden"></div>
+    </div>
+  </div>
+
+  <!-- Contenedor para modales -->
+  <div id="modal-root"></div>
+  <!-- Contenedor para toasts -->
+  <div id="toast-root"></div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="js/ui.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/fixtures.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html> 
